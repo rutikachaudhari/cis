@@ -1,0 +1,47 @@
+{% extends "appnew/base.html" %}
+{% block body_block %}
+    <div class="container">
+      <div class="jumbotron">
+        <h1> Product Management Crud </h1>
+        {% for prod in product %}
+          <li>Name:{{prod.name}}</li>
+          <li>Description:{{prod.description}}</li>
+          <li>Category:{{prod.category}}</li>
+          <li>Image:{{prod.image}}</li>
+        {% endfor %}
+
+================================================================
+
+        <table class="table table-striped table-bordered table-sm">
+            <thead class="thead-dark">
+            <tr>
+
+                <th>Product Name</th>
+                <th>Product image</th>
+                <th>Product description</th>
+                <th>Product category</th>
+            </tr>
+            </thead>
+            <tbody>
+        {% for prod in product %}
+            <tr>
+
+                <td>{{ prod.name }}</td>
+                <td>{{ prod.image }}</td>
+                <td>{{ prod.description }}</td>
+                <td>{{ prod.category }}</td>
+                <td>
+                    <a href="/edit/{{ product.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+                    <a href="/delete/{{ product.id }}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <br>
+        <center><a href="/emp/" class="btn btn-primary">Add New Record</a></center>
+
+      </div>
+    </div>
+{% endblock %}
